@@ -58,5 +58,10 @@ namespace Kakeibo
             this.Close();
         }
 
+        private void 終了XToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
