@@ -63,5 +63,41 @@ namespace Kakeibo
             this.Close();
         }
 
+        private void SaveData()
+        {
+            string path = "MoneyData.csv";
+            string strData = "";
+
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(
+                path,
+                false,
+                System.Text.Encoding.Default
+            );
+
+            foreach (MoneyDataSet.DataTable1Row drMoney in moneyDataSet.DataTable1)
+            {
+                strData = drMoney.日付.ToShortDateString() + ","
+                    + drMoney.分類 + ","
+                    + drMoney.品名 + ","
+                    + drMoney.金額.ToString() + ","
+                    +drMoney.備考 + ",";
+                sw.WriteLine(strData);
+            }
+            sw.Close();
+
+        }
+
+        private void S(object sender, FormClosingEventArgs e)
+        {
+            SaveData();
+        }
+
+        private void 保存SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
+   
+
     }
 }
