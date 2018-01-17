@@ -17,5 +17,11 @@ namespace Kakeibo
             InitializeComponent();
         }
 
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            ItemForm frmItem = new ItemForm();
+            DialogResult drRet = frmItem.ShowDialog();
+        }
+
     }
 }
