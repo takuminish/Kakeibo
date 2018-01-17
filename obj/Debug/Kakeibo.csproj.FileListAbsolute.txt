@@ -1,0 +1,10 @@
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\bin\Debug\Kakeibo.exe.config
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\bin\Debug\Kakeibo.exe
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\bin\Debug\Kakeibo.pdb
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.csprojResolveAssemblyReference.cache
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.Form1.resources
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.ItemForm.resources
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.Properties.Resources.resources
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.csproj.GenerateResource.Cache
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.exe
+c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.pdb
