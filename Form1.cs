@@ -24,6 +24,7 @@ namespace Kakeibo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            LoadData();
             categoryDataSet1.DataTable1.AddDataTable1Row("給料", "入金");
             categoryDataSet1.DataTable1.AddDataTable1Row("食費", "出金");
             categoryDataSet1.DataTable1.AddDataTable1Row("雑費", "出金");
@@ -97,7 +98,69 @@ namespace Kakeibo
             SaveData();
         }
 
-   
+        private void LoadData()
+        {
+            string path = "MoneyData.csv";
+            string delimStr = ",";
+            char[] delimiter = delimStr.ToCharArray();
+            string[] strData;
+            string strLine;
+            bool fileExists = System.IO.File.Exists(path);
+
+            if (fileExists)
+            {
+                System.IO.StreamReader sr = new System.IO.StreamReader(
+                    path,
+                    System.Text.Encoding.Default
+                );
+
+                while (sr.Peek() >= 0)
+                {
+                    strLine = sr.ReadLine();
+                    strData = strLine.Split(delimiter);
+                    moneyDataSet.DataTable1.AddDataTable1Row(
+                        DateTime.Parse(strData[0]),
+                        strData[1],
+                        strData[2],
+                        int.Parse(strData[3]),
+                        strData[4]
+                     );
+                }
+                sr.Close();
+            }
+        }
+
+        private void UpdateData()
+        {
+            int nowRow = dgv.CurrentRow.Index;
+            DateTime oldDate = DateTime.Parse(dgv.Rows[nowRow].Cells[0].Value.ToString());
+            string oldcategory = dgv.Rows[nowRow].Cells[1].Value.ToString();
+            string olditem = dgv.Rows[nowRow].Cells[2].Value.ToString();
+            int oldMoney = int.Parse(dgv.Rows[nowRow].Cells[3].Value.ToString());
+            string oldremarks = dgv.Rows[nowRow].Cells[4].Value.ToString();
+
+            ItemForm frmItem = new ItemForm(categoryDataSet1, oldDate, oldcategory, olditem, oldMoney, oldremarks);
+            DialogResult drRet = frmItem.ShowDialog();
+
+            if (drRet == DialogResult.OK)
+            {
+                dgv.Rows[nowRow].Cells[0].Value = frmItem.monCalendar.SelectionRange.Start;
+                dgv.Rows[nowRow].Cells[1].Value = frmItem.cmbCategory.Text;
+                dgv.Rows[nowRow].Cells[2].Value = frmItem.textItem.Text;
+                dgv.Rows[nowRow].Cells[3].Value = int.Parse(frmItem.mtxtMoney.Text);
+                dgv.Rows[nowRow].Cells[4].Value = frmItem.txtRemarks.Text;
+            }
+        }
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            UpdateData();
+        }
+
+        private void 変更CToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateData();
+        }
 
     }
 }

@@ -125,6 +125,7 @@
             this.buttonChange.TabIndex = 3;
             this.buttonChange.Text = "変更";
             this.buttonChange.UseVisualStyleBackColor = true;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // buttonDelete
             // 
@@ -186,6 +187,7 @@
             this.変更CToolStripMenuItem.Name = "変更CToolStripMenuItem";
             this.変更CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.変更CToolStripMenuItem.Text = "変更(&C)";
+            this.変更CToolStripMenuItem.Click += new System.EventHandler(this.変更CToolStripMenuItem_Click);
             // 
             // 削除DToolStripMenuItem
             // 
