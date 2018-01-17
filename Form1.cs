@@ -53,5 +53,10 @@ namespace Kakeibo
             AddData();
         }
 
+        private void buttonEnd_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

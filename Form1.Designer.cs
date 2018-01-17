@@ -143,6 +143,7 @@
             this.buttonEnd.TabIndex = 5;
             this.buttonEnd.Text = "終了";
             this.buttonEnd.UseVisualStyleBackColor = true;
+            this.buttonEnd.Click += new System.EventHandler(this.buttonEnd_Click);
             // 
             // 保存SToolStripMenuItem
             // 
