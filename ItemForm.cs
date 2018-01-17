@@ -12,9 +12,10 @@ namespace Kakeibo
 {
     public partial class ItemForm : Form
     {
-        public ItemForm()
+        public ItemForm(CategoryDataSet dsCategory)
         {
             InitializeComponent();
+            categoryDataSet.Merge(dsCategory);
         }
 
     }

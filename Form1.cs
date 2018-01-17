@@ -19,8 +19,16 @@ namespace Kakeibo
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            ItemForm frmItem = new ItemForm();
+            ItemForm frmItem = new ItemForm(categoryDataSet1);
             DialogResult drRet = frmItem.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            categoryDataSet1.DataTable1.AddDataTable1Row("給料", "入金");
+            categoryDataSet1.DataTable1.AddDataTable1Row("食費", "出金");
+            categoryDataSet1.DataTable1.AddDataTable1Row("雑費", "出金");
+            categoryDataSet1.DataTable1.AddDataTable1Row("住居", "出金");
         }
 
     }

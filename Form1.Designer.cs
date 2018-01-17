@@ -57,12 +57,14 @@
             this.moneyDataSet = new Kakeibo.MoneyDataSet();
             this.moneyDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.moneyDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryDataSet1 = new Kakeibo.CategoryDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv
@@ -272,6 +274,11 @@
             this.moneyDataSetBindingSource1.DataSource = this.moneyDataSet;
             this.moneyDataSetBindingSource1.Position = 0;
             // 
+            // categoryDataSet1
+            // 
+            this.categoryDataSet1.DataSetName = "CategoryDataSet";
+            this.categoryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -286,6 +293,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "簡易家計簿";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -293,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,6 +337,7 @@
         private MoneyDataSet moneyDataSet;
         private System.Windows.Forms.BindingSource moneyDataSetBindingSource;
         private System.Windows.Forms.BindingSource moneyDataSetBindingSource1;
+        private CategoryDataSet categoryDataSet1;
     }
 }
 
