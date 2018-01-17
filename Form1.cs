@@ -41,6 +41,7 @@ namespace Kakeibo
                 moneyDataSet.DataTable1.AddDataTable1Row(
                     frmItem.monCalendar.SelectionRange.Start,
                     frmItem.cmbCategory.Text,
+                    frmItem.txtmiddlecategory.Text,
                     frmItem.textItem.Text,
                     int.Parse(frmItem.mtxtMoney.Text),
                     frmItem.txtRemarks.Text
@@ -78,7 +79,8 @@ namespace Kakeibo
             foreach (MoneyDataSet.DataTable1Row drMoney in moneyDataSet.DataTable1)
             {
                 strData = drMoney.日付.ToShortDateString() + ","
-                    + drMoney.分類 + ","
+                    + drMoney.大分類 + ","
+                    + drMoney.中分類 + ","
                     + drMoney.品名 + ","
                     + drMoney.金額.ToString() + ","
                     +drMoney.備考 + ",";
@@ -122,8 +124,9 @@ namespace Kakeibo
                         DateTime.Parse(strData[0]),
                         strData[1],
                         strData[2],
-                        int.Parse(strData[3]),
-                        strData[4]
+                        strData[3],
+                        int.Parse(strData[4]),
+                        strData[5]
                      );
                 }
                 sr.Close();
@@ -162,5 +165,20 @@ namespace Kakeibo
             UpdateData();
         }
 
+        private void DeleteData()
+        {
+            int nowRow = dgv.CurrentRow.Index;
+            dgv.Rows.RemoveAt(nowRow);
+        }
+
+        private void 削除DToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteData();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            DeleteData();
+        }
     }
 }

@@ -281,7 +281,9 @@ namespace Kakeibo {
             
             private global::System.Data.DataColumn column日付;
             
-            private global::System.Data.DataColumn column分類;
+            private global::System.Data.DataColumn column大分類;
+            
+            private global::System.Data.DataColumn column中分類;
             
             private global::System.Data.DataColumn column品名;
             
@@ -332,9 +334,17 @@ namespace Kakeibo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn 分類Column {
+            public global::System.Data.DataColumn 大分類Column {
                 get {
-                    return this.column分類;
+                    return this.column大分類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn 中分類Column {
+                get {
+                    return this.column中分類;
                 }
             }
             
@@ -399,11 +409,12 @@ namespace Kakeibo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(System.DateTime 日付, string 分類, string 品名, int 金額, string 備考) {
+            public DataTable1Row AddDataTable1Row(System.DateTime 日付, string 大分類, string 中分類, string 品名, int 金額, string 備考) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         日付,
-                        分類,
+                        大分類,
+                        中分類,
                         品名,
                         金額,
                         備考};
@@ -430,7 +441,8 @@ namespace Kakeibo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.column日付 = base.Columns["日付"];
-                this.column分類 = base.Columns["分類"];
+                this.column大分類 = base.Columns["大分類"];
+                this.column中分類 = base.Columns["中分類"];
                 this.column品名 = base.Columns["品名"];
                 this.column金額 = base.Columns["金額"];
                 this.column備考 = base.Columns["備考"];
@@ -441,8 +453,10 @@ namespace Kakeibo {
             private void InitClass() {
                 this.column日付 = new global::System.Data.DataColumn("日付", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column日付);
-                this.column分類 = new global::System.Data.DataColumn("分類", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column分類);
+                this.column大分類 = new global::System.Data.DataColumn("大分類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column大分類);
+                this.column中分類 = new global::System.Data.DataColumn("中分類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column中分類);
                 this.column品名 = new global::System.Data.DataColumn("品名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column品名);
                 this.column金額 = new global::System.Data.DataColumn("金額", typeof(int), null, global::System.Data.MappingType.Element);
@@ -607,17 +621,33 @@ namespace Kakeibo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string 分類 {
+            public string 大分類 {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.分類Column]));
+                        return ((string)(this[this.tableDataTable1.大分類Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'分類\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'大分類\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.分類Column] = value;
+                    this[this.tableDataTable1.大分類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string 中分類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.中分類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'中分類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.中分類Column] = value;
                 }
             }
             
@@ -683,14 +713,26 @@ namespace Kakeibo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Is分類Null() {
-                return this.IsNull(this.tableDataTable1.分類Column);
+            public bool Is大分類Null() {
+                return this.IsNull(this.tableDataTable1.大分類Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Set分類Null() {
-                this[this.tableDataTable1.分類Column] = global::System.Convert.DBNull;
+            public void Set大分類Null() {
+                this[this.tableDataTable1.大分類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is中分類Null() {
+                return this.IsNull(this.tableDataTable1.中分類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set中分類Null() {
+                this[this.tableDataTable1.中分類Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

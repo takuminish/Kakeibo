@@ -16,7 +16,8 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="日付" msprop:Generator_ColumnVarNameInTable="column日付" msprop:Generator_ColumnPropNameInRow="日付" msprop:Generator_ColumnPropNameInTable="日付Column" msprop:Generator_UserColumnName="日付" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="分類" msprop:Generator_ColumnVarNameInTable="column分類" msprop:Generator_ColumnPropNameInRow="分類" msprop:Generator_ColumnPropNameInTable="分類Column" msprop:Generator_UserColumnName="分類" type="xs:string" minOccurs="0" />
+              <xs:element name="大分類" msprop:Generator_ColumnVarNameInTable="column大分類" msprop:Generator_ColumnPropNameInRow="大分類" msprop:Generator_ColumnPropNameInTable="大分類Column" msprop:Generator_UserColumnName="大分類" type="xs:string" minOccurs="0" />
+              <xs:element name="中分類" msprop:Generator_ColumnVarNameInTable="column中分類" msprop:Generator_ColumnPropNameInRow="中分類" msprop:Generator_ColumnPropNameInTable="中分類Column" msprop:Generator_UserColumnName="中分類" type="xs:string" minOccurs="0" />
               <xs:element name="品名" msprop:Generator_ColumnVarNameInTable="column品名" msprop:Generator_ColumnPropNameInRow="品名" msprop:Generator_ColumnPropNameInTable="品名Column" msprop:Generator_UserColumnName="品名" type="xs:string" minOccurs="0" />
               <xs:element name="金額" msprop:Generator_ColumnVarNameInTable="column金額" msprop:Generator_ColumnPropNameInRow="金額" msprop:Generator_ColumnPropNameInTable="金額Column" msprop:Generator_UserColumnName="金額" type="xs:int" minOccurs="0" />
               <xs:element name="備考" msprop:Generator_ColumnVarNameInTable="column備考" msprop:Generator_ColumnPropNameInRow="備考" msprop:Generator_ColumnPropNameInTable="備考Column" msprop:Generator_UserColumnName="備考" type="xs:string" minOccurs="0" />
