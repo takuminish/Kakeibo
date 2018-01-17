@@ -21,6 +21,17 @@ namespace Kakeibo
         {
             ItemForm frmItem = new ItemForm(categoryDataSet1);
             DialogResult drRet = frmItem.ShowDialog();
+
+            if (drRet == DialogResult.OK)
+            {
+                moneyDataSet.DataTable1.AddDataTable1Row(
+                    frmItem.monCalendar.SelectionRange.Start,
+                    frmItem.cmbCategory.Text,
+                    frmItem.textItem.Text,
+                    int.Parse(frmItem.mtxtMoney.Text),
+                    frmItem.txtRemarks.Text
+                    );
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
