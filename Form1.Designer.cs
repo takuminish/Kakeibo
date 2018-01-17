@@ -174,19 +174,20 @@
             // 追加AToolStripMenuItem
             // 
             this.追加AToolStripMenuItem.Name = "追加AToolStripMenuItem";
-            this.追加AToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.追加AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.追加AToolStripMenuItem.Text = "追加(&A)";
+            this.追加AToolStripMenuItem.Click += new System.EventHandler(this.追加AToolStripMenuItem_Click);
             // 
             // 変更CToolStripMenuItem
             // 
             this.変更CToolStripMenuItem.Name = "変更CToolStripMenuItem";
-            this.変更CToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.変更CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.変更CToolStripMenuItem.Text = "変更(&C)";
             // 
             // 削除DToolStripMenuItem
             // 
             this.削除DToolStripMenuItem.Name = "削除DToolStripMenuItem";
-            this.削除DToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.削除DToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.削除DToolStripMenuItem.Text = "削除(&D)";
             // 
             // 表示VToolStripMenuItem
@@ -201,13 +202,13 @@
             // 一覧表示LToolStripMenuItem
             // 
             this.一覧表示LToolStripMenuItem.Name = "一覧表示LToolStripMenuItem";
-            this.一覧表示LToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.一覧表示LToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.一覧表示LToolStripMenuItem.Text = "一覧表示(&L)";
             // 
             // 集計表示SToolStripMenuItem
             // 
             this.集計表示SToolStripMenuItem.Name = "集計表示SToolStripMenuItem";
-            this.集計表示SToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.集計表示SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.集計表示SToolStripMenuItem.Text = "集計表示(&S)";
             // 
             // ヘルプHToolStripMenuItem
