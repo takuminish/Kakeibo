@@ -180,5 +180,11 @@ namespace Kakeibo
         {
             DeleteData();
         }
+
+        private void detail_Click(object sender, EventArgs e)
+        {
+            detail frmDetail = new detail(moneyDataSet);
+            DialogResult drRet = frmDetail.ShowDialog();
+        }
     }
 }

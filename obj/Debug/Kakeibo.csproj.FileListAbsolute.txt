@@ -8,3 +8,4 @@ c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.
 c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.csproj.GenerateResource.Cache
 c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.exe
 c:\users\15t253\documents\visual studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.pdb
+C:\Users\15t253\Documents\Visual Studio 2013\Projects\Kakeibo\obj\Debug\Kakeibo.detail.resources
