@@ -18,12 +18,13 @@ namespace Kakeibo
             categoryDataSet.Merge(dsCategory);
         }
 
-        public ItemForm(CategoryDataSet dsCategory, DateTime nowDate, string category, string item, int money, string remarks)
+        public ItemForm(CategoryDataSet dsCategory, DateTime nowDate, string Bigcategory, string Muddlecategory, string item, int money, string remarks)
         {
             InitializeComponent();
             categoryDataSet.Merge(dsCategory);
             monCalendar.SetDate(nowDate);
-            cmbCategory.Text = category;
+            cmbCategory.Text = Bigcategory;
+            txtmiddlecategory.Text = Muddlecategory;
             textItem.Text = item;
             txtRemarks.Text = remarks;
             mtxtMoney.Text = money.ToString();

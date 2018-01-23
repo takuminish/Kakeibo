@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Kakeibo
 {
-    public partial class detail : Form
+    public partial class DaySelectForm : Form
     {
-        public detail()
+        public DaySelectForm()
         {
             InitializeComponent();
         }

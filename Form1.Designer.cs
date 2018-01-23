@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.保存SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,26 +58,29 @@
             this.品名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.金額DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.備考DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataTable1BindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.moneyDataSet = new Kakeibo.MoneyDataSet();
             this.dataTable1BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.moneyDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.moneyDataSet = new Kakeibo.MoneyDataSet();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.moneyDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.moneyDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.detail = new System.Windows.Forms.Button();
-            this.dataTable1BindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dayselect = new System.Windows.Forms.Button();
+            this.DayRangeButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moneyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moneyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,7 +92,7 @@
             this.ヘルプHToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(757, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(783, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -187,7 +193,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(12, 307);
+            this.buttonAdd.Location = new System.Drawing.Point(29, 524);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 2;
@@ -197,7 +203,7 @@
             // 
             // buttonChange
             // 
-            this.buttonChange.Location = new System.Drawing.Point(106, 307);
+            this.buttonChange.Location = new System.Drawing.Point(110, 524);
             this.buttonChange.Name = "buttonChange";
             this.buttonChange.Size = new System.Drawing.Size(75, 23);
             this.buttonChange.TabIndex = 3;
@@ -207,7 +213,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(197, 307);
+            this.buttonDelete.Location = new System.Drawing.Point(200, 524);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 4;
@@ -217,7 +223,7 @@
             // 
             // buttonEnd
             // 
-            this.buttonEnd.Location = new System.Drawing.Point(656, 307);
+            this.buttonEnd.Location = new System.Drawing.Point(658, 524);
             this.buttonEnd.Name = "buttonEnd";
             this.buttonEnd.Size = new System.Drawing.Size(75, 23);
             this.buttonEnd.TabIndex = 5;
@@ -242,10 +248,10 @@
             this.金額DataGridViewTextBoxColumn,
             this.備考DataGridViewTextBoxColumn});
             this.dgv.DataSource = this.dataTable1BindingSource3;
-            this.dgv.Location = new System.Drawing.Point(51, 38);
+            this.dgv.Location = new System.Drawing.Point(42, 362);
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.Height = 21;
-            this.dgv.Size = new System.Drawing.Size(640, 248);
+            this.dgv.Size = new System.Drawing.Size(640, 156);
             this.dgv.TabIndex = 0;
             // 
             // 日付DataGridViewTextBoxColumn
@@ -284,6 +290,16 @@
             this.備考DataGridViewTextBoxColumn.HeaderText = "備考";
             this.備考DataGridViewTextBoxColumn.Name = "備考DataGridViewTextBoxColumn";
             // 
+            // dataTable1BindingSource3
+            // 
+            this.dataTable1BindingSource3.DataMember = "DataTable1";
+            this.dataTable1BindingSource3.DataSource = this.moneyDataSet;
+            // 
+            // moneyDataSet
+            // 
+            this.moneyDataSet.DataSetName = "MoneyDataSet";
+            this.moneyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // dataTable1BindingSource2
             // 
             this.dataTable1BindingSource2.DataMember = "DataTable1";
@@ -293,11 +309,6 @@
             // 
             this.moneyDataSetBindingSource2.DataSource = this.moneyDataSet;
             this.moneyDataSetBindingSource2.Position = 0;
-            // 
-            // moneyDataSet
-            // 
-            this.moneyDataSet.DataSetName = "MoneyDataSet";
-            this.moneyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataTable1BindingSource1
             // 
@@ -319,27 +330,50 @@
             this.moneyDataSetBindingSource1.DataSource = this.moneyDataSet;
             this.moneyDataSetBindingSource1.Position = 0;
             // 
-            // detail
+            // chart1
             // 
-            this.detail.Location = new System.Drawing.Point(331, 306);
-            this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(75, 23);
-            this.detail.TabIndex = 6;
-            this.detail.Text = "詳細表示";
-            this.detail.UseVisualStyleBackColor = true;
-            this.detail.Click += new System.EventHandler(this.detail_Click);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(42, 56);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(640, 300);
+            this.chart1.TabIndex = 6;
+            this.chart1.Text = "chart1";
             // 
-            // dataTable1BindingSource3
+            // dayselect
             // 
-            this.dataTable1BindingSource3.DataMember = "DataTable1";
-            this.dataTable1BindingSource3.DataSource = this.moneyDataSet;
+            this.dayselect.Location = new System.Drawing.Point(696, 56);
+            this.dayselect.Name = "dayselect";
+            this.dayselect.Size = new System.Drawing.Size(75, 33);
+            this.dayselect.TabIndex = 7;
+            this.dayselect.Text = "大分類別  日付選択";
+            this.dayselect.UseVisualStyleBackColor = true;
+            this.dayselect.Click += new System.EventHandler(this.dayselect_Click);
+            // 
+            // DayRangeButton
+            // 
+            this.DayRangeButton.Location = new System.Drawing.Point(696, 114);
+            this.DayRangeButton.Name = "DayRangeButton";
+            this.DayRangeButton.Size = new System.Drawing.Size(75, 34);
+            this.DayRangeButton.TabIndex = 8;
+            this.DayRangeButton.Text = "日付別    金額";
+            this.DayRangeButton.UseVisualStyleBackColor = true;
+            this.DayRangeButton.Click += new System.EventHandler(this.DayRangeButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 361);
-            this.Controls.Add(this.detail);
+            this.ClientSize = new System.Drawing.Size(783, 559);
+            this.Controls.Add(this.DayRangeButton);
+            this.Controls.Add(this.dayselect);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.buttonEnd);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonChange);
@@ -355,14 +389,15 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moneyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moneyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyDataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,8 +439,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 備考DataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource dataTable1BindingSource2;
         private System.Windows.Forms.BindingSource moneyDataSetBindingSource2;
-        private System.Windows.Forms.Button detail;
         private System.Windows.Forms.BindingSource dataTable1BindingSource3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button dayselect;
+        private System.Windows.Forms.Button DayRangeButton;
     }
 }
 
