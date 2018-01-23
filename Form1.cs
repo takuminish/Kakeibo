@@ -219,7 +219,7 @@ namespace Kakeibo
                     //グラフに追加するデータクラスを生成
                     System.Windows.Forms.DataVisualization.Charting.DataPoint dp = new System.Windows.Forms.DataVisualization.Charting.DataPoint();
                     dp.SetValueXY(xValues[i], yValues[i]);  //XとYの値を設定
-                    dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
+               //     dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
                     chart1.Series["大分類別"].Points.Add(dp);   //グラフにデータ追加
                 }
             }
@@ -265,7 +265,7 @@ namespace Kakeibo
                 //グラフに追加するデータクラスを生成
                 System.Windows.Forms.DataVisualization.Charting.DataPoint dp = new System.Windows.Forms.DataVisualization.Charting.DataPoint();
                 dp.SetValueXY(xValues[i], yValues[i]);  //XとYの値を設定
-                dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
+          //      dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
                 chart1.Series["日付別"].Points.Add(dp);   //グラフにデータ追加
             }
         }
@@ -319,7 +319,7 @@ namespace Kakeibo
                 //グラフに追加するデータクラスを生成
                 System.Windows.Forms.DataVisualization.Charting.DataPoint dp = new System.Windows.Forms.DataVisualization.Charting.DataPoint();
                 dp.SetValueXY(xValues[i], yValues[i]);  //XとYの値を設定
-                dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
+             //   dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
                 chart1.Series["月別"].Points.Add(dp);   //グラフにデータ追加
             }
         }
@@ -335,6 +335,69 @@ namespace Kakeibo
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Zandaka();
+        }
+
+        private void Zandaka() 
+        {
+            DateTime dtNow = DateTime.Now;
+            int iMonth = dtNow.Month;
+
+            chart1.Series.Clear();
+            chart1.Series.Add("残高");
+
+            chart1.Series["残高"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            string[] xValues = new string[31];
+            int[] yValues = new int[31];
+
+            Chartinit4(xValues, yValues, dtNow);
+            ChartSet4(xValues, yValues, dtNow);
+            for (int i = 0; i < xValues.Length; i++)
+            {
+                //グラフに追加するデータクラスを生成
+                System.Windows.Forms.DataVisualization.Charting.DataPoint dp = new System.Windows.Forms.DataVisualization.Charting.DataPoint();
+                dp.SetValueXY(xValues[i], yValues[i]);  //XとYの値を設定
+                dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
+                chart1.Series["残高"].Points.Add(dp);   //グラフにデータ追加
+            }
+        
+        }
+
+        private void Chartinit4(string[] xValues, int[] yValues, DateTime now)
+        {
+            for (int i = 0; i < yValues.Length; i++)
+            {
+                DateTime tmp = now.AddDays(((yValues.Length-1) - i) * -1);
+                xValues[i] = tmp.Year + "." + tmp.Month + "." + tmp.Day;
+                yValues[i] = 0;
+            }
+        }
+
+        private void ChartSet4(string[] xValues, int[] yValues, DateTime now)
+        {
+            for (int i = 0; i < yValues.Length; i++)
+            {
+              DateTime tmp = now.AddDays(((yValues.Length - 1) - i) * -1);
+              if (i != 0) { yValues[i] = yValues[i - 1]; }
+              foreach (MoneyDataSet.DataTable1Row drMoney in moneyDataSet.DataTable1)
+              {
+                if (drMoney.日付.Year == tmp.Year && drMoney.日付.Month == tmp.Month && drMoney.日付.Day == tmp.Day)
+                {
+                  if (drMoney.大分類 == "給料")
+                  {
+                    yValues[i] += drMoney.金額; 
+               
+                  } else {
+
+                    yValues[i] -= drMoney.金額; 
+                  }
+                }
+                 
+              }
+            }
+        }
 
     }
 }
