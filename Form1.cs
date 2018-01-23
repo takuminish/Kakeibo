@@ -29,7 +29,7 @@ namespace Kakeibo
             categoryDataSet1.DataTable1.AddDataTable1Row("食費", "出金");
             categoryDataSet1.DataTable1.AddDataTable1Row("雑費", "出金");
             categoryDataSet1.DataTable1.AddDataTable1Row("住居", "出金");
-            MoneyRange();
+            MoneyRangeDay();
 
         }
 
@@ -246,7 +246,7 @@ namespace Kakeibo
 
         }
 
-        private void MoneyRange()
+        private void MoneyRangeDay()
         {
             DateTime dtNow = DateTime.Now;
             int iMonth = dtNow.Month;
@@ -272,7 +272,7 @@ namespace Kakeibo
 
         private void DayRangeButton_Click(object sender, EventArgs e)
         {
-            MoneyRange();
+            MoneyRangeDay();
 
 
         }
@@ -292,6 +292,45 @@ namespace Kakeibo
                 if (drMoney.日付.Year == year && drMoney.日付.Month == month )
                 {
                   yValues[(drMoney.日付.Day)-1] += drMoney.金額; 
+                }
+            }
+        }
+
+        private void MonthRangeButton_Click(object sender, EventArgs e)
+        {
+            MoneyRangeMonth();
+        }
+
+        private void MoneyRangeMonth()
+        {
+            DateTime dtNow = DateTime.Now;
+            int iMonth = dtNow.Month;
+
+            chart1.Series.Clear();
+            chart1.Series.Add("月別");
+
+            chart1.Series["月別"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            string[] xValues = new string[12] {"1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"};
+            int[] yValues = new int[12] {0,0,0,0,0,0,0,0,0,0,0,0};
+
+            ChartSet3(xValues, yValues, dtNow.Year);
+            for (int i = 0; i < xValues.Length; i++)
+            {
+                //グラフに追加するデータクラスを生成
+                System.Windows.Forms.DataVisualization.Charting.DataPoint dp = new System.Windows.Forms.DataVisualization.Charting.DataPoint();
+                dp.SetValueXY(xValues[i], yValues[i]);  //XとYの値を設定
+                dp.IsValueShownAsLabel = true;  //グラフに値を表示するように指定
+                chart1.Series["月別"].Points.Add(dp);   //グラフにデータ追加
+            }
+        }
+
+        private void ChartSet3(string[] xValues, int[] yValues, int year)
+        {
+            foreach (MoneyDataSet.DataTable1Row drMoney in moneyDataSet.DataTable1)
+            {
+                if (drMoney.日付.Year == year)
+                {
+                    yValues[(drMoney.日付.Month) - 1] += drMoney.金額;
                 }
             }
         }
